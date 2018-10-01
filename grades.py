@@ -41,9 +41,8 @@ class GradeSet():
 			
 		h = 0
 		l = 0
-		for i in range(1, len(f)):
-			if f[i] != 0:
-				l += f[i]
+		for i in range(1, len(f)):	
+			l += f[i]
 			h += f[i]*i
 
 		return int(h/l)
