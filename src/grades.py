@@ -3,7 +3,7 @@ class GradeSet():
 	def __init__(self, data = None):
 		self.grades = []
 		self.data = data
-		if self.data != 'data/grade-data.json':
+		if self.data != '../data/grade-data.json':
 			raise Exception('Whoops')
 		with open(self.data) as f:
 			self.grades = json.loads(f.read())
@@ -41,11 +41,11 @@ class GradeSet():
 			
 		h = 0
 		l = 0
-		for i in range(1, len(f)):	
+		for i in f:	
 			l += f[i]
 			h += f[i]*i
 
-		return int(h/l)
+		return h/l
 
 	def cgrade(self):
 		"""
