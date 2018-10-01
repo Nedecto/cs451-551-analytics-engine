@@ -31,24 +31,22 @@ class GradeSet():
 		This function takes the sum of every change in letter grade and
 		adds each change to a corresponding amount.
 		EX. a change from 'C' to 'A' is 2 just as 'D' to 'B' is also 2
-		It then returns the highest number in grade changes
+		It then returns the average number in grade changes
 
 		"""
 		f = {4:0,3:0,2:0,1:0,0:0}
 		for i in self.grades:
 			diff = abs(self.d[i[2]] - self.d[i[3]])
 			f[diff] += 1
-		"""	
+			
 		h = 0
-		for i in f:
-			print(f[i])
+		l = 0
+		for i in range(1, len(f)):
+			if f[i] != 0:
+				l += f[i]
 			h += f[i]*i
-		print(h)
-		return int(h/len(self.grades))
-		"""
-		if f[max(f)] == 0:
-			f.pop(max(f))
-		return f[max(f)]
+
+		return int(h/l)
 
 	def cgrade(self):
 		"""
